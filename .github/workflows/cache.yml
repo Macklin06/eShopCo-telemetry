@@ -1,4 +1,4 @@
-name: Cache Test
+name: Prime Cache 8eeb9fd
 
 on:
   push:
@@ -15,11 +15,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Cache dependencies
-        id: cache-deps
+        id: cache-step
         uses: actions/cache@v4
         with:
           path: ~/.cache
           key: cache-8eeb9fd
 
       - name: prime-cache-8eeb9fd
-        run: echo "Cache result: ${{ steps.cache-deps.outputs.cache-hit }}"
+        run: echo "Cache hit result: ${{ steps.cache-step.outputs.cache-hit }}"
