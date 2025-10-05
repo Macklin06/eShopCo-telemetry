@@ -1,0 +1,25 @@
+name: Cache Test
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        id: cache-deps
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache
+          key: cache-8eeb9fd
+
+      - name: prime-cache-8eeb9fd
+        run: echo "Cache result: ${{ steps.cache-deps.outputs.cache-hit }}"
