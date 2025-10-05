@@ -1,0 +1,17 @@
+name: Test Action
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 24f2001048@ds.study.iitm.ac.in
+        run: echo "Hello, world! This action was triggered successfully."
